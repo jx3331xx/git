@@ -18,5 +18,7 @@ if test 0 = "$1"
 then
 	make -C contrib/scalar test
 fi
+# Run the git subtree tests only if main tests succeeded
+test 0 != "$1" || make -C contrib/subtree test
 
 check_unignored_build_artifacts
